@@ -43,3 +43,5 @@ Route::prefix('dashboard')->group(function () {
         return 'This is dashboard/users';
     });
 });
+
+Route::resource('tasks', 'App\Http\Controllers\MySampleResourceController');
