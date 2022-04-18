@@ -15,6 +15,12 @@ use App\Http\Controllers\MembersController;
 |
 */
 
+Route::domain('staging.sample.loc')->group(function () {
+    Route::get('/', function () {
+        return 'subdomains';
+    });
+ });
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -28,3 +34,12 @@ Route::get('about', function () {
 
 Route::get('welcome', [WelcomeController::class, 'index']);
 Route::get('members/{id}', [MembersController::class, 'show'])->name('members.show');
+
+Route::prefix('dashboard')->group(function () {
+    Route::get('/', function () {
+        return 'This is the dashboard';
+    });
+    Route::get('users', function () {
+        return 'This is dashboard/users';
+    });
+});
